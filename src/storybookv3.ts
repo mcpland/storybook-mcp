@@ -39,7 +39,8 @@ export const getComponentList = (storybookData: StorybookData) => {
     }
   }
 
-  return Array.from(componentSet);
+  // align with  v5
+  return Array.from(componentSet).sort();
 };
 
 export const getComponentPropsDocUrl = (
