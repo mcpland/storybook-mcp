@@ -27,7 +27,7 @@ Add the following configuration to MCP settings:
   "mcpServers": {
     "storybook": {
       "command": "npx",
-      "args": ["-y", "storybook-mcp"],
+      "args": ["-y", "storybook-mcp@latest"],
       "env": {
         "STORYBOOK_URL": "<your_storybook_url>/index.json"
       }
