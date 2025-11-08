@@ -6,6 +6,10 @@
 
 A Model Context Protocol (MCP) server that provides tools to interact with Storybook documentation and component information.
 
+<a href="https://glama.ai/mcp/servers/@mcpland/storybook-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@mcpland/storybook-mcp/badge" alt="storybook-mcp MCP server" />
+</a>
+
 ## Features
 
 - **getComponentList**: Get a list of all components from a configured Storybook
