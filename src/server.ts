@@ -316,7 +316,7 @@ export class StorybookMCPServer {
               // get props table HTML
               const propsTableHTML = await page.$eval(
                 "table.docblock-argstable",
-                (element: HTMLElement) => element.innerHTML
+                (element: HTMLElement) => element.outerHTML
               );
 
               results[componentName] = propsTableHTML;
