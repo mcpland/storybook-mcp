@@ -31,7 +31,7 @@ export const getComponentList = (storybookData: StorybookData) => {
       // filter out docs pages
       if (story.parameters && !story.parameters.docsOnly) {
         // get component path or name from 'kind' property
-        const componentPath = story.kind.split("/");
+        const componentPath = story.kind.split('/');
         // usually the last part is the component name
         const componentName = componentPath[componentPath.length - 1];
         componentSet.add(componentName.trim());
@@ -46,7 +46,7 @@ export const getComponentList = (storybookData: StorybookData) => {
 export const getComponentPropsDocUrl = (
   data: StorybookData,
   componentName: string,
-  storybookUrl: string
+  storybookUrl: string,
 ) => {
   if (!data || data.v !== 3 || !data.stories) {
     return null;
@@ -56,17 +56,17 @@ export const getComponentPropsDocUrl = (
 
   // find matching component entry
   const matchingEntry = Object.values(stories).find((entry) =>
-    entry.kind.endsWith(`/${componentName}`)
+    entry.kind.endsWith(`/${componentName}`),
   );
 
   if (!matchingEntry) {
     throw new Error(`Component "${componentName}" not found in Storybook`);
   }
 
-  const [fileName] = new URL(storybookUrl).pathname.split("/").slice(-1);
+  const [fileName] = new URL(storybookUrl).pathname.split('/').slice(-1);
 
   // build component documentation page URL
-  const baseUrl = storybookUrl.replace(`/${fileName}`, "");
+  const baseUrl = storybookUrl.replace(`/${fileName}`, '');
   const componentUrl = `${baseUrl}/iframe.html?viewMode=docs&id=${matchingEntry.id}`;
   return componentUrl;
 };

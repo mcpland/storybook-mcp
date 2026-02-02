@@ -21,7 +21,7 @@ export const getComponentList = (data: StorybookData) => {
 
   // extract component names, filter only docs type entries
   const components = Object.values(entries)
-    .filter((entry) => entry.type === "docs")
+    .filter((entry) => entry.type === 'docs')
     .map((entry) => entry.title)
     .filter((title: string) => title)
     .sort();
@@ -34,7 +34,7 @@ export const getComponentList = (data: StorybookData) => {
 export const getComponentPropsDocUrl = (
   data: StorybookData,
   componentName: string,
-  storybookUrl: string
+  storybookUrl: string,
 ) => {
   if (!data || data.v !== 5 || !data.entries) {
     return null;
@@ -44,17 +44,17 @@ export const getComponentPropsDocUrl = (
 
   // find matching component entry
   const matchingEntry = Object.values(entries).find(
-    (entry) => entry.type === "docs" && entry.title === componentName
+    (entry) => entry.type === 'docs' && entry.title === componentName,
   );
 
   if (!matchingEntry) {
     throw new Error(`Component "${componentName}" not found in Storybook`);
   }
 
-  const [fileName] = new URL(storybookUrl).pathname.split("/").slice(-1);
+  const [fileName] = new URL(storybookUrl).pathname.split('/').slice(-1);
 
   // build component documentation page URL
-  const baseUrl = storybookUrl.replace(`/${fileName}`, "");
+  const baseUrl = storybookUrl.replace(`/${fileName}`, '');
   const componentUrl = `${baseUrl}/iframe.html?viewMode=${matchingEntry.type}&id=${matchingEntry.id}`;
   return componentUrl;
 };

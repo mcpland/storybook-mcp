@@ -27,11 +27,11 @@ Each custom tool in the `CUSTOM_TOOLS` array must have the following structure:
 
 ```typescript
 interface CustomTool {
-  name: string;           // Unique tool name
-  description: string;    // Tool description for the AI
-  parameters: object;     // Input parameters schema (optional)
-  page: string;          // URL to navigate to
-  handler: string;       // JavaScript code to execute on the page
+  name: string; // Unique tool name
+  description: string; // Tool description for the AI
+  parameters: object; // Input parameters schema (optional)
+  page: string; // URL to navigate to
+  handler: string; // JavaScript code to execute on the page
 }
 ```
 
@@ -85,25 +85,27 @@ The `handler` field contains JavaScript code that will be executed in the contex
 1. **Return Values**: The handler should return a value that can be serialized (string, number, boolean, array, or plain object)
 
 2. **DOM Access**: You have full access to the DOM of the loaded page
+
    ```javascript
    // Get text content
-   "document.querySelector('.title').textContent"
-   
+   "document.querySelector('.title').textContent";
+
    // Get multiple elements
-   "Array.from(document.querySelectorAll('.item')).map(el => el.textContent)"
-   
+   "Array.from(document.querySelectorAll('.item')).map(el => el.textContent)";
+
    // Get attributes
-   "document.querySelector('.icon').getAttribute('data-icon-name')"
+   "document.querySelector('.icon').getAttribute('data-icon-name')";
    ```
 
 3. **Error Handling**: Wrap your code in try-catch for better error messages
+
    ```javascript
-   "try { return document.querySelector('.data').textContent; } catch(e) { return 'Element not found'; }"
+   "try { return document.querySelector('.data').textContent; } catch(e) { return 'Element not found'; }";
    ```
 
 4. **Parameters**: Access tool parameters via the `arguments` array
    ```javascript
-   "document.querySelector(`[data-id=\"${arguments[0].itemId}\"]`).textContent"
+   "document.querySelector(`[data-id=\"${arguments[0].itemId}\"]`).textContent";
    ```
 
 ## Usage
@@ -111,7 +113,7 @@ The `handler` field contains JavaScript code that will be executed in the contex
 Once configured, your custom tools will appear alongside the built-in tools:
 
 - `getComponentList` (built-in)
-- `getComponentsProps` (built-in)  
+- `getComponentsProps` (built-in)
 - `getIconList` (custom)
 - `getColorPalette` (custom)
 - `getComponentStatus` (custom)
@@ -129,4 +131,4 @@ The AI assistant can then use these tools to extract specific information from y
 
 - Custom tools execute JavaScript in a headless browser environment
 - Only configure tools that access trusted Storybook URLs
-- Validate and sanitize any dynamic content in your handlers 
+- Validate and sanitize any dynamic content in your handlers

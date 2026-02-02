@@ -95,11 +95,11 @@ You can define custom tools to extract specific information from your Storybook 
 
 ```typescript
 interface CustomTool {
-  name: string;           // Unique tool name
-  description: string;    // Tool description for the AI
-  parameters: object;     // Input parameters schema (optional)
-  page: string;          // URL to navigate to
-  handler: string;       // JavaScript code to execute on the page
+  name: string; // Unique tool name
+  description: string; // Tool description for the AI
+  parameters: object; // Input parameters schema (optional)
+  page: string; // URL to navigate to
+  handler: string; // JavaScript code to execute on the page
 }
 ```
 
