@@ -1,3 +1,4 @@
+import { createRequire } from "module";
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import {
@@ -16,6 +17,9 @@ import {
   getComponentList as getComponentListV5,
   getComponentPropsDocUrl as getComponentPropsDocUrlV5,
 } from "./storybookv5.js";
+
+const require = createRequire(import.meta.url);
+const packageJson = require("../package.json");
 
 // Custom tool interface
 interface CustomTool {
@@ -44,7 +48,7 @@ export class StorybookMCPServer {
     this.server = new Server(
       {
         name: "storybook-mcp",
-        version: "0.0.1",
+        version: packageJson.version,
       },
       {
         capabilities: {
