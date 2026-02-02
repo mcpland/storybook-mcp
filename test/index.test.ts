@@ -288,7 +288,7 @@ describe('StorybookMCPServer', () => {
     const result = await (server as any).executeCustomTool(customTool, {});
     expect(result.content[0].text).toBe('IconA\nIconB');
     expect(mockPage.goto).toHaveBeenCalledWith(customTool.page, {
-      waitUntil: 'networkidle',
+      waitUntil: 'domcontentloaded',
     });
   });
 

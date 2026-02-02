@@ -275,7 +275,7 @@ export class StorybookMCPServer {
             const page = await browser.newPage();
 
             try {
-              await page.goto(componentUrl, { waitUntil: 'networkidle' });
+              await page.goto(componentUrl, { waitUntil: 'domcontentloaded' });
 
               // wait for table to load
               await page.waitForSelector('table.docblock-argstable', {
@@ -343,7 +343,7 @@ export class StorybookMCPServer {
 
         try {
           // Navigate to the specified page
-          await page.goto(customTool.page, { waitUntil: 'networkidle' });
+          await page.goto(customTool.page, { waitUntil: 'domcontentloaded' });
 
           // Wait a bit for the page to fully load
           await page.waitForTimeout(2000);
