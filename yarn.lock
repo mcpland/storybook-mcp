@@ -2425,7 +2425,7 @@ pkce-challenge@^5.0.0:
   resolved "https://registry.npmjs.org/pkce-challenge/-/pkce-challenge-5.0.0.tgz"
   integrity sha512-ueGLflrrnvwB3xuo/uGob5pd5FN7l0MsLf0Z87o/UQmRtwjvfylfc9MurIxRAWywCYTgrvpXBcqjV4OfCYGCIQ==
 
-playwright-core@1.54.1, playwright-core@^1.54.1:
+playwright-core@1.54.1:
   version "1.54.1"
   resolved "https://registry.npmjs.org/playwright-core/-/playwright-core-1.54.1.tgz"
   integrity sha512-Nbjs2zjj0htNhzgiy5wu+3w09YetDx5pkrpI/kZotDlDUaYk0HVA5xrBVPdow4SAUIlhgKcJeJg4GRKW6xHusA==
